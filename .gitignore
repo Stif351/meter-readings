@@ -19,9 +19,7 @@ __pycache__/
 
 
 *.xlsx
-ch.py
-ch2.py
-audio.py
+
 
 # Avoid your project being littered with annoying .DS_Store files!
 .DS_Store
