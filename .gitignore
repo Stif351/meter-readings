@@ -19,6 +19,9 @@ __pycache__/
 
 
 *.xlsx
+main_1.py
+search_data.py
+utill.py
 
 
 # Avoid your project being littered with annoying .DS_Store files!

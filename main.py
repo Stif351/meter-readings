@@ -4,21 +4,32 @@ import tkinter as tk
 from tkinter import font
 
 
-def add_date():
-    about_win = tk.Toplevel(root)
-    about_win.title("Внесення показників")
-    about_win.geometry("900x600")
-    about_win.configure(bg="#2c3e50")  # Власний колір фону
+import main_1
+import utill
 
-    about_win.grab_set()
+
+def add_date():
+    # about_win = tk.Toplevel(root)
+    # about_win.title("Внесення показників")
+    # about_win.geometry("900x600")
+    # about_win.configure(bg="#2c3e50")  # Власний колір фону
+
+    # btn = tk.Button(about_win, text="ENTER")
+    # btn.grid(row=3, column=0, ipadx=6, ipady=6, padx=50, pady=30)
+    main_1.add_app(root)
+    # about_win.grab_set()
+
+
 
 def add_check():
-    about_win = tk.Toplevel(root)
-    about_win.title("Об'єднання квітанцій")
-    about_win.geometry("900x600")
-    about_win.configure(bg="#2c3e40")  # Власний колір фону
+    # about_win = tk.Toplevel(root)
+    # about_win.title("Об'єднання квітанцій")
+    # about_win.geometry("900x600")
+    # about_win.configure(bg="#2c3e40")  # Власний колір фону
+    #
+    # about_win.grab_set()
 
-    about_win.grab_set()
+    utill.print_check(root)
 
 def confirm_exit():
     root.destroy()
