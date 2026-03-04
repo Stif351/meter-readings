@@ -1,26 +1,20 @@
 from tkinter import SUNKEN, W, S
+import tkinter as tk
+import PyPDF2
+import os
+from tkinter import ttk, messagebox, filedialog, font
+from PyPDF2 import PdfReader, PdfWriter
+from reportlab.pdfgen import canvas
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.pagesizes import A4
+from io import BytesIO
+from send2trash import send2trash
+from pathlib import Path
 
 
 def print_check(root):
-        import tkinter as tk
 
-        import PyPDF2
-        import os
-
-        # from tkinter import *
-        from tkinter import ttk, messagebox, filedialog
-        from tkinter import font
-
-        from PyPDF2 import PdfReader, PdfWriter
-
-        from reportlab.pdfgen import canvas
-        from reportlab.pdfbase import pdfmetrics
-        from reportlab.pdfbase.ttfonts import TTFont
-        from reportlab.lib.pagesizes import A4
-        from io import BytesIO
-
-        from send2trash import send2trash
-        from pathlib import Path
 
         pdfmetrics.registerFont(TTFont("DejaVuSans", "DejaVuSans.ttf"))
         ft = 'DejaVuSans'
@@ -113,15 +107,21 @@ def print_check(root):
 
         def save_file():
 
-            messagebox.showinfo("Інформація", "Файли оплати успішно створенні.")
+            messagebox.showinfo("Інформація", "Файли оплати успішно створенні.", parent=about_win)
 
 
         def confirm_exit():
-            pass
-            # response = messagebox.askyesno("Вихід із додатка", "Ви впевнені, що хочете вийти і видалити тимчасові файли?")
-            # if response:
-            #     remove_files()
-            #     root.quit()
+
+            try:
+                remove_files()
+                about_win.destroy()
+            except TypeError:
+                messagebox.showinfo("Інформація", "Файли відсутні. Додаток буде закрито.", parent=about_win)
+            finally:
+                about_win.destroy()
+
+
+
 
 
         def add_header(input_pdf, output_pdf, header_text, fr, rw):
@@ -155,14 +155,13 @@ def print_check(root):
             # path_save_label2.config(text=path_s)
 
         def remove_files():
-            response = messagebox.askyesno("Видалення файлу", "Ви впевнені, що хочете видалити файли?")
+            response = messagebox.askyesno("Видалення файлу", "Ви впевнені, що хочете вийти і видалити файли?",
+                                           parent=about_win)
             pathK8 = Path(results[3])
             pathK30 = Path(results[4])
             folders =[
                 pathK8,
                 pathK30
-
-
             ]
 
             if response:

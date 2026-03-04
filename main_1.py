@@ -1,17 +1,11 @@
 from tkinter import SUNKEN, W, END
 import search_data
+import tkinter as tk
+from tkinter import font, messagebox, filedialog
+from tkinter import ttk
+
 
 def add_app(root):
-        import tkinter as tk
-
-
-
-        # from tkinter import *
-        from tkinter import font, messagebox, filedialog
-        from tkinter import ttk
-
-
-
 
         # ================== DATES ==============================================
 
@@ -80,7 +74,7 @@ def add_app(root):
             selected_report.set('')
             selected_a.set('')
 
-            messagebox.showinfo("Успіх", "Дані успішно збережено!")
+            messagebox.showinfo("Успіх", "Дані успішно збережено!", parent=about_win)
 
 
 
@@ -94,23 +88,20 @@ def add_app(root):
             if new_value == "":  # дозволяємо очищення поля
                 return True
             if not new_value.isdigit():
-                messagebox.showerror("Помилка вводу", "Дозволені тільки цифри!")
+                messagebox.showerror("Помилка вводу", "Дозволені тільки цифри!", parent=about_win)
                 return False
             if len(new_value) > 5:
-                messagebox.showerror("Помилка вводу", "Максимум 5 цифр!")
+                messagebox.showerror("Помилка вводу", "Максимум 5 цифр!", parent=about_win)
                 return False
             return True
 
         def confirm_exit():
-            pass
+
+            about_win.destroy()
 
 
         # =/////////////////===================  MAIN ==========================////////////////////////////////
 
-        # root = tk.Tk()
-        # root.title("MAIN WINDOW")
-        # root.geometry("900x800")
-        # root.resizable(False, False)
 
         about_win = tk.Toplevel(root)
         about_win.title("Внесення показників")
@@ -191,6 +182,6 @@ def add_app(root):
 
         lf_MF.grid(column=0, row=1, ipadx=6, ipady=6, padx=20, pady=20, sticky=W)
 
-        # root.mainloop()
+
         about_win.grab_set()
 
