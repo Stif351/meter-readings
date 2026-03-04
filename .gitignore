@@ -18,6 +18,10 @@ __pycache__/
 *.mp3
 *.exe
 
+ut_ai.py
+
+
+
 
 *.xlsx
 
