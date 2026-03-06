@@ -22,7 +22,7 @@ class MyExtraWindow(tk.Toplevel):
         self.report_menu_year = None
 
         self.title("Це окреме вікно")
-        self.geometry("900x600")
+        self.geometry("900x800+500+50")
         self.configure(bg="#2c3e50")
 
         self.courier_10 = font.Font(family="Courier", size=10, weight=font.BOLD)

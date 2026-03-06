@@ -182,7 +182,7 @@ def print_check(root):
 
         about_win = tk.Toplevel(root)
         about_win.title("Внесення показників")
-        about_win.geometry("900x600")
+        about_win.geometry("900x800")
         about_win.configure(bg="#2c3e50")  # Власний колір фону
 
         courier_10 = font.Font(family="Courier", size=10, weight=font.BOLD)

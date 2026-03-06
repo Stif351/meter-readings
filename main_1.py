@@ -105,16 +105,16 @@ def add_app(root):
 
         about_win = tk.Toplevel(root)
         about_win.title("Внесення показників")
-        about_win.geometry("900x600")
+        about_win.geometry("900x600+500+50")
         about_win.configure(bg="#2c3e50")  # Власний колір фону
 
         courier_10 = font.Font(family="Courier", size=10, weight=font.BOLD)
         courier_14 = font.Font(family="Courier", size=14, weight=font.BOLD)
         courier_18 = font.Font(family="Courier", size=18, weight=font.BOLD)
         width_frame = 800
-        #
+
         label = tk.Label(about_win, text="ДОДАВАННЯ ПОКАЗНИКІВ ЛІЧИЛЬНИКІВ У ФАЙЛ", fg="BLUE", font=courier_18)
-        label.grid(row=0, column=0, columnspan=3, ipadx=6, ipady=6, padx=5, pady=15)
+        label.grid(row=0, column=0, columnspan=3, ipadx=6, ipady=6, padx=5, pady=5)
 
         # ========================  main frame  =======================================
 
@@ -123,7 +123,7 @@ def add_app(root):
 
 
         lf_H1 = ttk.Frame(lf_MF, borderwidth=10, relief=SUNKEN)
-        lf_H1.config(width=width_frame, height=150)
+        lf_H1.config(width=width_frame, height=110)
         lf_H1.grid_propagate(False)
 
         label_month = tk.Label(lf_H1, text="Виберіть місяць: ", font=courier_14, foreground='red')
@@ -150,7 +150,7 @@ def add_app(root):
         # ***************************** frame date count 8  **********************************
 
         lf_H8 = ttk.Frame(lf_MF, borderwidth=10, relief=SUNKEN)
-        lf_H8.config(width=width_frame, height=350)
+        lf_H8.config(width=width_frame, height=320)
         lf_H8.grid_propagate(False)
 
         vcmd = (lf_H8.register(validate_input), "%P")
